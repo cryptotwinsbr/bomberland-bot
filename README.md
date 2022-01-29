@@ -31,7 +31,9 @@ So, I decided to create a new auto click bot for the new NFT game space crypto. 
 
 To maintain the improvments and this auto click bot free, please help me with any value, have fun :)
 
-My pix:
+My key pix:  5f3d220c-a2a3-4db2-bfb2-30ae0533e240
+
+QRCODE pix:
 
 ![image](https://user-images.githubusercontent.com/98666682/151678042-ad125099-297c-4c5d-a5f3-92b083733b55.png)
 
@@ -113,7 +115,9 @@ python3 index.py
 
 I hope it can help you, don't forget to strengthen it by making a donation :) any amount helps us to keep updated to help you in the best way
 
-My pix:
+My key pix:  5f3d220c-a2a3-4db2-bfb2-30ae0533e240
+
+QRCODE pix:
 
 ![image](https://user-images.githubusercontent.com/98666682/151678042-ad125099-297c-4c5d-a5f3-92b083733b55.png)
 
