@@ -105,7 +105,7 @@ Now you just need to run by following the command:
 
 ````bash
 # run the auto click bot
-python3 index.py
+python3 space-crypto-bot.py
 ````
 
 
