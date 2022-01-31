@@ -1,14 +1,32 @@
-# spacecrypto-bot
-This is a free python bot program that crosses you to farm with auto click in space crypto NFT game, having fun :)
-
-
-# Space crypto auto click bot Ready-to-use 
+# 🚀 Space Crypto auto click bot ready-to-use 🚀
 
 [![Author](https://img.shields.io/badge/author-cryptotwins-blue)]() ![python](https://img.shields.io/badge/python-%5E%203-green) 
 
-## Summary
+This is a free python bot program that crosses you to farm with auto click in space crypto NFT game, having fun :)
+![space-crypto-bot-gif](https://user-images.githubusercontent.com/98666682/151814564-28a2d83e-2212-49a7-8e59-8d4ddd2acdb2.gif)
 
 ---
+## About Project
+
+
+This is a open source project inspired on bombcrypto-bot that was a success auto click bot that helped me a lot.
+
+So, I decided to create a new auto click bot for the new NFT game space crypto. (It is not soo easy) I hope you like 
+
+To maintain the improvments and this auto click bot free, please help me with any value, have fun :)
+
+- Metamask wallet (BNB/SPG/BUSD/BCOIN):  `0x73933b679F940ea7352c3895852501e3044FE855`
+- My key pix: `5f3d220c-a2a3-4db2-bfb2-30ae0533e240`
+
+QRCode pix:
+
+![image](https://user-images.githubusercontent.com/98666682/151678042-ad125099-297c-4c5d-a5f3-92b083733b55.png)
+
+
+Feel free to give your feedback ;)
+
+---
+## Summary
 
 <!--ts-->
 
@@ -21,41 +39,14 @@ This is a free python bot program that crosses you to farm with auto click in sp
   <!--te-->
   </br>
 
-## About Project
-
----
-
-This is a open source project inspired on bombcrypto-bot that was a success auto click bot that helped me a lot.
-
-So, I decided to create a new auto click bot for the new NFT game space crypto. (It is not soo easy) I hope you like 
-
-To maintain the improvments and this auto click bot free, please help me with any value, have fun :)
-
-My key pix:  5f3d220c-a2a3-4db2-bfb2-30ae0533e240
-
-QRCODE pix:
-
-![image](https://user-images.githubusercontent.com/98666682/151678042-ad125099-297c-4c5d-a5f3-92b083733b55.png)
-
-Metamask wallet:
-
-0x73933b679F940ea7352c3895852501e3044FE855
-
-
-Feel free to give your feedback ;)
-
 
 ## Software Requirements
-
----
 
 - PYTHON **3+**
   </br>
 
 
 ## How to run
-
----
 
 ### Install dependencies
 
@@ -105,7 +96,7 @@ Now you just need to run by following the command:
 
 ````bash
 # run the auto click bot
-python3 spacecrypto-bot.py
+python spacecrypto-bot.py
 ````
 
 
