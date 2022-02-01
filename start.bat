@@ -1,0 +1,1 @@
+python open-cmd.py space-crypto-bot.py
