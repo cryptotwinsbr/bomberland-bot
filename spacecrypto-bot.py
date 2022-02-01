@@ -149,11 +149,15 @@ def scroll_ships():
     global y_scroll
     global h_scroll
     global w_scroll
+    use_click_and_drag_instead_of_scroll = True
+    click_and_drag_amount = 200
+    scroll_size = 60
+
     moveToWithRandomness(x_scroll+(w_scroll/2),y_scroll+300+(h_scroll/2),1)
-    if not c['use_click_and_drag_instead_of_scroll']:
-        pyautogui.scroll(-c['scroll_size'])
+    if not use_click_and_drag_instead_of_scroll:
+        pyautogui.scroll(-scroll_size)
     else:
-        pyautogui.dragRel(0,-c['click_and_drag_amount'],duration=1, button='left')
+        pyautogui.dragRel(0,-click_and_drag_amount,duration=1, button='left')
 
 def go_to_continue():
     if clickBtn(images['confirm']):
@@ -225,7 +229,7 @@ def ship_to_fight():
                 if ships_15_15():
                     break
                 scroll_ships()
-                time.sleep(2)
+                time.sleep(1)
             go_to_fight()
         else:
             return
@@ -264,7 +268,7 @@ def main():
     hero_clicks = 0
     images = load_images()
     
-    print("""Opa beleza?""")
+    #print("""Opa beleza?""")
     '''print('Quantas naves(minimo) você deseja para iniciar a batalha?')
     qtd_ships = input()
     print('Quantidade de naves selecionadas: ' + qtd_ships)'''
@@ -285,7 +289,7 @@ def main():
     "ship" : 10,
     "fight" : 5,
     "fight_boss" : 20,
-    "ship_tela_boss": 10,
+    "ship_tela_boss": 3,
     "continue": 5,
     }
     while True:
