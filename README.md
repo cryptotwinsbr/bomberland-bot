@@ -118,18 +118,15 @@ We added a folder (screen_test) with images that you can test the bot, just open
 
 I hope it can help you, don't forget to strengthen it by making a donation :) any amount helps us to keep updated to help you in the best way
 
-My key pix:  5f3d220c-a2a3-4db2-bfb2-30ae0533e240
+- Metamask wallet (BNB/SPG/BUSD/BCOIN):  `0x73933b679F940ea7352c3895852501e3044FE855`
+- My key pix: `5f3d220c-a2a3-4db2-bfb2-30ae0533e240`
 
-QRCODE pix:
+QRCode pix:
 
 ![image](https://user-images.githubusercontent.com/98666682/151678042-ad125099-297c-4c5d-a5f3-92b083733b55.png)
 
-Metamask wallet:
 
-0x73933b679F940ea7352c3895852501e3044FE855
-
-
-Have a nice farm! :)
+Have a nice farm and a good sleep night! :)
 
 </br>
 </br>
