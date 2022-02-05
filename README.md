@@ -25,6 +25,14 @@ QRCode pix:
 
 Feel free to give your feedback ;)
 
+## Warning
+
+We are not responsible for any penalties incurred by those who use the autoclick bot, use at your own risk.
+
+## Aviso 
+
+Nós não nos responsabilizarmos por eventuais penalidades sofridas por quem usar o bot de autoclick, use por sua própria conta e risco.
+
 ---
 ## Summary
 
@@ -101,6 +109,10 @@ python spacecrypto-bot.py
 
 
 </br>
+
+We added a folter (screen_test) with images that you can test the bot, just open the image with your bot active.
+
+*Observation: we reccomend to use just 1 screen to have a bot totally functional
 
 ### Thank you! 
 
