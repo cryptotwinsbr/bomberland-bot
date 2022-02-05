@@ -110,7 +110,7 @@ python spacecrypto-bot.py
 
 </br>
 
-We added a folter (screen_test) with images that you can test the bot, just open the image with your bot active.
+We added a folder (screen_test) with images that you can test the bot, just open the image with your bot active.
 
 *Observation: we reccomend to use just 1 screen to have a bot totally functional
 
