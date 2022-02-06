@@ -65,7 +65,7 @@ def clickBtn(img, timeout=3, threshold = 0.8):
         x,y,w,h = matches[0]
         pos_click_x = x+w/2
         pos_click_y = y+h/2
-        moveToWithRandomness(pos_click_x,pos_click_y,1)
+        moveToWithRandomness(pos_click_x,pos_click_y,0.5)
         pyautogui.click()
         return True
 
@@ -218,23 +218,23 @@ def time_is_zero():
     return False
        
 def ship_to_fight():
-    if time_is_zero():
-        if go_to_ship():
-            buttonsClicked = 1
-            empty_scrolls_attempts = 3
-            while(empty_scrolls_attempts >0):
-                buttonsClicked = click_fight_ship()
-                if buttonsClicked == 0:
-                    empty_scrolls_attempts = empty_scrolls_attempts - 1
-                if ships_15_15():
-                    break
-                scroll_ships()
-                time.sleep(1)
-            go_to_fight()
-        else:
-            return
+    #if time_is_zero():
+    if go_to_ship():
+        buttonsClicked = 1
+        empty_scrolls_attempts = 3
+        while(empty_scrolls_attempts >0):
+            buttonsClicked = click_fight_ship()
+            if buttonsClicked == 0:
+                empty_scrolls_attempts = empty_scrolls_attempts - 1
+            if ships_15_15():
+                break
+            scroll_ships()
+            time.sleep(1)
+        go_to_fight()
     else:
         return
+    #else:
+    #    return
 
 def go_to_ship_tela_boss():
     if clickBtn(images['ship-boss']):
