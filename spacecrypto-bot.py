@@ -122,10 +122,10 @@ def scroll_ships():
     global h_scroll
     global w_scroll
     use_click_and_drag_instead_of_scroll = True
-    click_and_drag_amount = 80
+    click_and_drag_amount = 70
     scroll_size = 60
 
-    moveToWithRandomness(x_scroll+(w_scroll/2),y_scroll+300+(h_scroll/2),1)
+    moveToWithRandomness(x_scroll+(w_scroll/2),y_scroll+100+(h_scroll/2),1)
     if not use_click_and_drag_instead_of_scroll:
         pyautogui.scroll(-scroll_size)
     else:
@@ -134,9 +134,11 @@ def scroll_ships():
 def go_to_continue():
     if clickBtn(images['confirm']):
         print('Encontrou confirm')
-        return True
-    else:
-        return False
+    if clickBtn(images['confirm-1']):
+        print('Encontrou confirm')    
+    if clickBtn(images['confirm-lose']):
+        print('Encontrou confirm')
+    return
 
 def tela_close():
     if clickBtn(images['close']):
@@ -164,7 +166,7 @@ def ships_15_15():
     start = time.time()
     has_timed_out = False
     while(not has_timed_out):
-        matches = positions(images['15-15'], 1)
+        matches = positions(images['15-15'], 0.99)
 
         if(len(matches)==0):
             has_timed_out = time.time()-start > 3
@@ -242,8 +244,9 @@ def click_fight_ship_new():
         #print("Entrou for x y w h. Y:", y)
         if ( y < y_ship_final+50):
             moveToWithRandomness(x+offset_x+(w/2),y+offset_y+(h/2),1)
-            for i in range(len(not_working_green_bars)):
+            for i in range(len(not_working_green_bars)+3):
                 pyautogui.click()
+                time.sleep(0.1)
                 global ship_clicks
                 ship_clicks = ship_clicks + 1
                 ship_clicks_cnt = ship_clicks_cnt + 1
@@ -261,6 +264,9 @@ def ship_to_fight():
     global ship_clicks
     #if time_is_zero():
     if go_to_ship():
+        if ships_15_15():
+            go_to_fight()
+            return
         ship_clicks = 0
         buttonsClicked = 1
         empty_scrolls_attempts = 3
@@ -273,8 +279,11 @@ def ship_to_fight():
             if ship_clicks > 15:
                 break    
             scroll_ships()
-            time.sleep(1)
-        go_to_fight()
+            time.sleep(2)
+        if ships_15_15():            
+            go_to_fight()
+        else:
+            return
     else:
         return
     #else:
@@ -320,13 +329,6 @@ def login():
         print('Connect wallet encontrado')
         login_attempts = login_attempts + 1
     else:
-        return
-
-    if clickBtn(images['close'], timeout = 5):
-        print('''Close encontrado
-
-            ''')
-        pyautogui.hotkey('ctrl','f5')
         return
 
     if clickBtn(images['sign'], timeout=8):
@@ -381,7 +383,7 @@ def main():
     "fight" : 5,
     "fight_boss" : 20,
     "ship_tela_boss": 3,
-    "continue": 1,
+    "continue": 0.2,
     }
 
     while True:
@@ -392,10 +394,10 @@ def main():
                 #print("Ship to fight")
                 ship_to_fight()
         
-        if actual_time - time_start["ship_tela_boss"] > time_to_check['ship_tela_boss']:
+        '''if actual_time - time_start["ship_tela_boss"] > time_to_check['ship_tela_boss']:
                 time_start["ship_tela_boss"] = actual_time
                 #print("Ship tela boss")
-                ship_tela_boss()
+                ship_tela_boss()'''
 
         if actual_time - time_start["continue"] > time_to_check['continue']:
                 time_start["continue"] = actual_time
