@@ -90,7 +90,7 @@ def clickBtn(img, timeout=2, threshold = 0.7):
         x,y,w,h = matches[0]
         pos_click_x = x+w/2
         pos_click_y = y+h/2
-        moveToWithRandomness(pos_click_x,pos_click_y,1)
+        moveToWithRandomness(pos_click_x,pos_click_y,0.5)
         pyautogui.click()
         return True
 
@@ -102,7 +102,7 @@ def printSreen():
         sct_img = np.array(sct.grab(monitor))
         return sct_img[:,:,:3]
 
-def positions(target, threshold=0.8,img = None):
+def positions(target, threshold=0.7,img = None):
     if img is None:
         img = printSreen()
     result = cv2.matchTemplate(img,target,cv2.TM_CCOEFF_NORMED)
