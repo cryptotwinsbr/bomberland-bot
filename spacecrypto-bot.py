@@ -79,7 +79,7 @@ def show(rectangles, img = None):
     cv2.imshow('img',img)
     cv2.waitKey(0)
 
-def clickBtn(img, timeout=1, threshold = 0.8):
+def clickBtn(img, timeout=2, threshold = 0.7):
     start = time.time()
     has_timed_out = False
     while(not has_timed_out):
@@ -90,7 +90,7 @@ def clickBtn(img, timeout=1, threshold = 0.8):
         x,y,w,h = matches[0]
         pos_click_x = x+w/2
         pos_click_y = y+h/2
-        moveToWithRandomness(pos_click_x,pos_click_y,0.5)
+        moveToWithRandomness(pos_click_x,pos_click_y,1)
         pyautogui.click()
         return True
 
@@ -152,6 +152,7 @@ def go_to_ship():
         print('Encontrou ship buttom')
         return True
     else:
+        print('Nao encontrou ship buttom')
         return False
 
 def go_to_fight():
@@ -166,7 +167,7 @@ def ships_15_15():
     start = time.time()
     has_timed_out = False
     while(not has_timed_out):
-        matches = positions(images['15-15'], 0.99)
+        matches = positions(images['15-15'], 0.95)
 
         if(len(matches)==0):
             has_timed_out = time.time()-start > 3
@@ -212,9 +213,9 @@ def click_fight_ship_new():
     offset_y = 50
     y_ship_final = 0
 
-    green_bars = positions(images['green-bar-short'], threshold=0.9)
+    green_bars = positions(images['green-bar-short'], threshold=0.8)
     #print('Green bars detected', len(green_bars))
-    buttons = positions(images['fight'], threshold=0.9)
+    buttons = positions(images['fight'], threshold=0.8)
     #print('Buttons fight detected', len(buttons))
 
     for key,(x, y, w, h) in enumerate(buttons):
@@ -228,7 +229,7 @@ def click_fight_ship_new():
             y_ship_final = y
             #print("Y ship final: ", y_ship_final)        
 
-    yellow_bars = positions(images['yellow-bar-short'], threshold=0.9)
+    yellow_bars = positions(images['yellow-bar-short'], threshold=0.8)
     #print('Yellow bars detected', len(yellow_bars))
 
     not_working_green_bars = []
