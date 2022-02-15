@@ -79,7 +79,7 @@ def show(rectangles, img = None):
     cv2.imshow('img',img)
     cv2.waitKey(0)
 
-def clickBtn(img, timeout=3, threshold = 0.8):
+def clickBtn(img, timeout=1, threshold = 0.8):
     start = time.time()
     has_timed_out = False
     while(not has_timed_out):
@@ -138,6 +138,13 @@ def go_to_continue():
     else:
         return False
 
+def tela_close():
+    if clickBtn(images['close']):
+        print('Encontrou close')
+        return True
+    else:
+        return False
+
 def go_to_ship():
     if clickBtn(images['ship']):
         print('Encontrou ship buttom')
@@ -146,15 +153,18 @@ def go_to_ship():
         return False
 
 def go_to_fight():
-    if clickBtn(images['fight-boss-new']):
+    if clickBtn(images['fight-boss']):
         print('''Vai para fight boss!!
+        ''')
+    else:
+        print('''Nao encontrou fight boss!!
         ''')
 
 def ships_15_15():
     start = time.time()
     has_timed_out = False
     while(not has_timed_out):
-        matches = positions(images['15-15'], 0.9)
+        matches = positions(images['15-15'], 1)
 
         if(len(matches)==0):
             has_timed_out = time.time()-start > 3
@@ -196,12 +206,12 @@ def click_fight_ship_new():
     global h_scroll
     global w_scroll
 
-    offset_x = 220
+    offset_x = 150
     offset_y = 50
     y_ship_final = 0
 
-    green_bars = positions(images['blue-bar-short'], threshold=0.9)
-    #print('Blue bars detected', len(green_bars))
+    green_bars = positions(images['green-bar-short'], threshold=0.9)
+    #print('Green bars detected', len(green_bars))
     buttons = positions(images['fight'], threshold=0.9)
     #print('Buttons fight detected', len(buttons))
 
@@ -309,6 +319,15 @@ def login():
     if clickBtn(images['connect-wallet'], timeout = 10):
         print('Connect wallet encontrado')
         login_attempts = login_attempts + 1
+    else:
+        return
+
+    if clickBtn(images['close'], timeout = 5):
+        print('''Close encontrado
+
+            ''')
+        pyautogui.hotkey('ctrl','f5')
+        return
 
     if clickBtn(images['sign'], timeout=8):
         login_attempts = login_attempts + 1
@@ -319,8 +338,14 @@ def login():
             print('''Jogo iniciado com sucesso!!
 
             ''')
-            login_attempts = 0
-        return
+            login_attempts = 0            
+            return
+        if clickBtn(images['close'], timeout = 12):
+            print('Close encontrado')
+            pyautogui.hotkey('ctrl','f5')
+            return
+    return
+        
 
 def main():
     global images    
@@ -338,6 +363,7 @@ def main():
     print('Quantidade de naves selecionadas: ' + qtd_ships)'''
 
     time_start = {
+    "close" : 0,
     "login" : 0,
     "ship_to_fight" : 0,
     "ship" : 0,
@@ -348,6 +374,7 @@ def main():
     }
 
     time_to_check = {
+    "close" : 1,  
     "login" : 1,
     "ship_to_fight" : 5,
     "ship" : 10,
@@ -359,7 +386,7 @@ def main():
 
     while True:
         actual_time = time.time()
-
+    
         if actual_time - time_start["ship_to_fight"] > time_to_check['ship_to_fight']:
                 time_start["ship_to_fight"] = actual_time
                 #print("Ship to fight")
@@ -373,12 +400,17 @@ def main():
         if actual_time - time_start["continue"] > time_to_check['continue']:
                 time_start["continue"] = actual_time
                 #print("Ship continue")
-                go_to_continue()        
+                go_to_continue()   
 
         if actual_time - time_start["login"] > addRandomness(time_to_check['login'] * 60):
             sys.stdout.flush()
             time_start["login"] = actual_time
-            login()
+            login() 
+
+        if actual_time - time_start["close"] > time_to_check['close']:
+            time_start["close"] = actual_time
+            #print("Ship continue")
+            tela_close()   
 
         time.sleep(0.3)
 
