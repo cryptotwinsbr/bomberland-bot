@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+
+#unity-container { position: absolute }
+#unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -51%) }
+#unity-container.unity-mobile { width: 100%; height: 100% }
+#unity-canvas {
+    background: black;
+    border : solid 1px #1E5280;
+}
+.unity-mobile #unity-canvas { width: 100%; height: 100% }
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
+#unity-logo { width: 154px; height: 130px; background: url('unity-logo-dark.png') no-repeat center }
+#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; background: url('progress-bar-empty-dark.png') no-repeat center }
+#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-dark.png') no-repeat center }
+#unity-footer {
+    position: relative;
+    color: white;
+    padding-top: 10px;
+}
+.unity-mobile #unity-footer { display: none }
+#unity-webgl-logo { float:left; width: 204px; height: 38px; background: url('webgl-logo.png') no-repeat center }
+#unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: arial; font-size: 18px }
+#unity-fullscreen-button { float: right; width: 38px; height: 38px; background: url('fullscreen-button.png') no-repeat center }
+#unity-mobile-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
+#top-task {
+    color: white;
+    font-size: 18px;
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    margin-top: 20px;
+    background-color: transparent;
+}
+#bottom-task {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+.footer {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.white-border-btn {
+    border: 1px solid white;
+    background: transparent;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+}
+
+.footer-button {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: white;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.corner-top-left {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: -1;
+    left: -13px;
+    top: -13px;
+}
+
+.corner-top-right {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    transform: rotate(90deg);
+    z-index: -1;
+    right: -12px;
+    top: -12px;
+}
+
+.corner-bottom-right {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    transform: rotate(180deg);
+    z-index: -1;
+    right: -12px;
+    bottom: 42px;
+}
+
+.corner-bottom-left {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    transform: rotate(270deg);
+    z-index: -1;
+    left: -12px;
+    bottom: 42px;
+}
+.edge-top {
+    width: 100%;
+    height: 7px;
+    position: absolute;
+    top: -8px;
+    z-index: 0;
+}
+
+.edge-bottom {
+    width: 100%;
+    height: 8px;
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: 46px;
+    z-index: 0;
+}
+
+.edge-left {
+    width: 8px;
+    height: 100%;
+    position: absolute;
+    left: -8px;
+    z-index: 0;
+    padding-bottom: 55px;
+}
+
+.edge-right {
+    width: 8px;
+    height: 100%;
+    position: absolute;
+    transform: rotate(180deg);
+    right: -8px;
+    z-index: 0;
+    padding-top: 55px;
+}
