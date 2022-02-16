@@ -10,10 +10,15 @@ import time
 import sys
 from debug import Debug
 
-VERSAO_SCRIPT = "1.00"
+VERSAO_SCRIPT = "1.01"
 
 # Tempo entre ações
 pyautogui.PAUSE = 0.5
+
+# Definicao de quatidade de naves
+empty_qtd_spaceships = 60
+qtd_send_spaceships = 15
+
 global x_scroll
 global y_scroll
 global h_scroll
@@ -174,14 +179,16 @@ def login():
         return False
 
 def confirm():
+    confirm_action = False
     if clickBtn(images['confirm'], name='okBtn', timeout=3):
         dbg.console('Confirm encontrado','INFO', 'ambos')
         time.sleep(2) 
         endFight()  
-
+        confirm_action = True
     if clickBtn(images['confirm-victory'], name='okVicBtn', timeout=1):
         dbg.console('Confirm victory encontrado','INFO', 'ambos')
-        return
+        confirm_action = True
+    return confirm_action
 
 def removeSpaceships():
     time.sleep(2)   
@@ -243,16 +250,15 @@ def reloadSpacheship():
         time.sleep(3)
 
 def refreshSpaceships(qtd):
+    global empty_qtd_spaceships
+    global qtd_send_spaceships
     dbg.console('Refresh Spaceship to Fight', 'INFO', 'ambos')
     buttonsClicked = 1
-    empty_qtd_spaceships = 60
-    qtd_send_spaceships = 15
     cda =  100
     
     global ships_clicks
     ships_clicks = 0
-    empty_scrolls_attempts = qtd_send_spaceships       
-    #checkClose()
+    empty_scrolls_attempts = qtd_send_spaceships   
 
     if qtd > 0:
         ships_clicks = qtd
@@ -320,35 +326,6 @@ def lifeBoss():
 
     return lessPosition
 
-def endBoss():
-    if len(positions(images['spg-surrender'], 0.9)  ) > 0:
-        cont = 6
-        while(cont >0):
-            cont = cont-1
-            nowPosition = lifeBoss()        
-            if len(last["lessPosition"]) == 0:
-                if len(nowPosition) > 0:
-                    last["lessPosition"] = nowPosition
-                    dbg.console("Starting position", 'INFO', 'ambos')                                           
-            else:
-                if np.array_equal(nowPosition,last["lessPosition"]) == False:
-                    last["lessPosition"] = nowPosition
-                    dbg.console("Updating position")
-                    break
-                else:
-                    if clickBtn(images['confirm'], name='okBtn', timeout=3):
-                        time.sleep(2) 
-                        endFight()
-                        break
-                    else:
-                        if cont == 0:
-                            dbg.console("End time wait", 'INFO', 'ambos')
-                            endFight()
-                            break
-                        else:
-                            dbg.console("Waiting", 'INFO', 'ambos')
-                            last["lessPosition"] = nowPosition
-                            time.sleep(5) 
 
 def main():
     global images    
@@ -388,6 +365,8 @@ def main():
 
     while True:
         actual_time = time.time()
+
+        action_found = False
         
         if actual_time - time_start["login"] > addRandomness(time_to_check['login'] * 1):
             sys.stdout.flush()
@@ -396,10 +375,14 @@ def main():
                 if len(positions(images['fight-boss'], 0.9))  > 0:
                     removeSpaceships()
                     refreshSpaceships(0)
+                    action_found = True
+            else:
+                action_found = True            
 
         if actual_time - time_start["continue"] > time_to_check['continue']:
             time_start["continue"] = actual_time
-            confirm()
+            if confirm():
+                action_found = True  
         
         '''if actual_time - time_start["end_boss"] > time_to_check['end_boss']:
             time_start["end_boss"] = actual_time
@@ -407,7 +390,11 @@ def main():
 
         if actual_time - time_start["close"] > time_to_check['close']:
             time_start["close"] = actual_time
-            screen_close()  
+            if screen_close():
+                action_found = True
+
+        if action_found == False:
+            dbg.console('Nenhuma acao encontrada', 'WARNING', 'ambos')
 
         time.sleep(0.3)
 
