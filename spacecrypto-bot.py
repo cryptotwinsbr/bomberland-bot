@@ -10,14 +10,16 @@ import time
 import sys
 from debug import Debug
 
-VERSAO_SCRIPT = "1.01"
+VERSAO_SCRIPT = "1.02"
 
 # Tempo entre ações
-pyautogui.PAUSE = 0.5
+pyautogui.PAUSE = 0.2
 
 # Definicao de quatidade de naves
 empty_qtd_spaceships = 60
 qtd_send_spaceships = 15
+qtd_refresh_ships = 0 
+cont_boss = 1
 
 global x_scroll
 global y_scroll
@@ -89,7 +91,6 @@ def show(rectangles, img = None):
     cv2.waitKey(0)
 
 def clickBtn(img,name=None, timeout=3, threshold = 0.7):
-    #logger(None, progress_indicator=True)
     if not name is None:
         pass
     start = time.time()
@@ -179,15 +180,30 @@ def login():
         return False
 
 def confirm():
+    global cont_boss
     confirm_action = False
-    if clickBtn(images['confirm'], name='okBtn', timeout=3):
+    if clickBtn(images['confirm'], name='okBtn', timeout=1):
         dbg.console('Confirm encontrado','INFO', 'ambos')
         time.sleep(2) 
         endFight()  
         confirm_action = True
     if clickBtn(images['confirm-victory'], name='okVicBtn', timeout=1):
         dbg.console('Confirm victory encontrado','INFO', 'ambos')
+        dbg.console('Boss ' + str(cont_boss) + " derrotado",'INFO', 'ambos')
+        cont_boss = cont_boss + 1
         confirm_action = True
+        if cont_boss == 9:
+            time.sleep(30) 
+            dbg.console("Boss 8, refresh ships", 'DEBUG', 'ambos')
+            clickBtn(images['ship'])
+        if cont_boss == 14:
+            time.sleep(30) 
+            dbg.console("Boss 14, refresh ships", 'DEBUG', 'ambos')
+            clickBtn(images['ship'])
+        if cont_boss == 19:
+            time.sleep(30) 
+            dbg.console("Boss 19, refresh ships", 'DEBUG', 'ambos')
+            clickBtn(images['ship'])
     return confirm_action
 
 def removeSpaceships():
@@ -207,8 +223,8 @@ def removeSpaceships():
             break
 
 def clickButtonsFight():
+    global qtd_send_spaceships
     buttons = positions(images['spg-go-fight'], 0.9)
-    qtd_send_spaceships = 15    
     for (x, y, w, h) in buttons:
         moveToWithRandomness(x+(w/2),y+(h/2),1)
         pyautogui.click()
@@ -219,35 +235,27 @@ def clickButtonsFight():
             return -1
     return len(buttons)
 
-def endFight():
-    dbg.console("End fight", 'INFO', 'ambos')
-    time.sleep(3) 
-    returnBase()
-    time.sleep(15) 
+def refreshPage():
+    pass
 
-    if len(positions(images['spg-processing'], 0.9)) > 0:
-        time.sleep(40) 
-
-    if len(positions(images['fight-boss'], 0.9))  > 0:
-        removeSpaceships()
-        time.sleep(1) 
-        refreshSpaceships(0)
-    else:
-        refreshPage()
 
 def screen_close():
+    global cont_boss
     if clickBtn(images['close']):
-        dbg.console('Encontrou close', 'ERROR', 'ambos')
+        dbg.console('Encontrou close', 'ERROR', 'ambos')        
+        cont_boss = 1
         return True
     else:
         return False
 
 def reloadSpacheship():
+    global cont_boss
     if len(positions(images['spg-base'], 0.8)) > 0 and len(positions(images['fight-boss'], 0.9))  > 0:
         clickBtn(images['spg-base'], name='closeBtn', timeout=1)
         time.sleep(3)
         clickBtn(images['ship'], name='closeBtn', timeout=1)
-        time.sleep(3)
+        time.sleep(3)        
+        cont_boss = 1
 
 def refreshSpaceships(qtd):
     global empty_qtd_spaceships
@@ -287,13 +295,15 @@ def refreshSpaceships(qtd):
     else:
         reloadSpacheship()
         refreshSpaceships(ships_clicks)
-
+        
 def goToFight():
     clickBtn(images['fight-boss'])
     time.sleep(1)
     clickBtn(images['confirm'])
 
 def endFight():
+    global cont_boss    
+    cont_boss = 1
     dbg.console("End fight", 'INFO', 'ambos')
     time.sleep(3) 
     returnBase()
@@ -317,15 +327,27 @@ def returnBase():
 
 def lifeBoss():
     lessPosition = positions(images['spg-life-boss-1'], 0.9)
-
     if len(lessPosition) == 0:
-        lessPosition = positions(images['spg-life-boss-2'], 0.9)
-                    
+        lessPosition = positions(images['spg-life-boss-2'], 0.9)                    
     if len(lessPosition) == 0:
         lessPosition = positions(images['spg-life-boss-3'], 0.9)
-
     return lessPosition
 
+def zero_ships():
+    if len(positions(images['spg-surrender'], 0.8)  ) > 0:
+        start = time.time()
+        has_timed_out = False
+        while(not has_timed_out):
+            matches = positions(images['0-15'], 0.9)
+            #dbg.console("Result boss 9: " + str(len(matches)), 'DEBUG', 'ambos')
+            if(len(matches)==0):
+                has_timed_out = time.time()-start > 3
+                continue
+            elif(len(matches)>0):
+                clickBtn(images['ship'])
+                return True
+    return False
+                  
 
 def main():
     global images    
@@ -340,54 +362,36 @@ def main():
     dbg.console('Bot Iniciado. Versao: ' + str(VERSAO_SCRIPT), 'INFO', 'ambos')
 
     time_start = {
-    "refresh" : 0,
     "close" : 0,
     "login" : 0,
-    "ship_to_fight" : 0,
-    "ship" : 0,
-    "fight" : 0,
-    "fight_boss" : 0,
-    "end_boss": 0,
-    "continue": 0,
     }
-
     time_to_check = {
-    "refresh" : 600,
-    "close" : 1,  
+    "close" : 5,  
     "login" : 1,
-    "ship_to_fight" : 5,
-    "ship" : 10,
-    "fight" : 5,
-    "fight_boss" : 20,
-    "end_boss": 3,
-    "continue": 0.2,
     }
 
     while True:
         actual_time = time.time()
 
         action_found = False
-        
+
         if actual_time - time_start["login"] > addRandomness(time_to_check['login'] * 1):
             sys.stdout.flush()
             time_start["login"] = actual_time
-            if not login():                
+            if not login():
                 if len(positions(images['fight-boss'], 0.9))  > 0:
                     removeSpaceships()
                     refreshSpaceships(0)
                     action_found = True
             else:
-                action_found = True            
+                action_found = True     
 
-        if actual_time - time_start["continue"] > time_to_check['continue']:
-            time_start["continue"] = actual_time
-            if confirm():
-                action_found = True  
+        if confirm():
+            action_found = True 
+
+        if zero_ships():
+            action_found = True       
         
-        '''if actual_time - time_start["end_boss"] > time_to_check['end_boss']:
-            time_start["end_boss"] = actual_time
-            endBoss() '''
-
         if actual_time - time_start["close"] > time_to_check['close']:
             time_start["close"] = actual_time
             if screen_close():
@@ -395,8 +399,6 @@ def main():
 
         if action_found == False:
             dbg.console('Nenhuma acao encontrada', 'WARNING', 'ambos')
-
-        time.sleep(0.3)
 
 if __name__ == '__main__':
     main()
