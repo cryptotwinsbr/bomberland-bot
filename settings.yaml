@@ -15,6 +15,9 @@
 
     # Se desejar que remova as naves antes de adicionar outras (True/False)
     remove_ships: False 
+
+    # Volta para a spaceship nas waves 9, 14 e 19
+    key_waves: True
     
   # Valor de confiança das comparações
   threshold:

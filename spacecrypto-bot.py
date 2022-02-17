@@ -11,7 +11,7 @@ import sys
 from debug import Debug
 import yaml
 
-VERSAO_SCRIPT = "1.05"
+VERSAO_SCRIPT = "1.06"
 
 # Tempo entre ações
 pyautogui.PAUSE = 0.2
@@ -203,18 +203,19 @@ def confirm():
                     time.sleep(1)
                     clickBtn(images['confirm-victory'], name='okVicBtn', timeout=2)
                     cont_boss = 1
-            if cont_boss == 9:
-                time.sleep(30) 
-                dbg.console("Boss 9, refresh ships", 'DEBUG', 'ambos')
-                clickBtn(images['ship'])
-            if cont_boss == 14:
-                time.sleep(30) 
-                dbg.console("Boss 14, refresh ships", 'DEBUG', 'ambos')
-                clickBtn(images['ship'])
-            if cont_boss == 19:
-                time.sleep(30) 
-                dbg.console("Boss 19, refresh ships", 'DEBUG', 'ambos')
-                clickBtn(images['ship'])
+            if st['key_waves'] == True: 
+                if cont_boss == 9:
+                    time.sleep(30) 
+                    dbg.console("Boss 9, refresh ships", 'DEBUG', 'ambos')
+                    clickBtn(images['ship'])
+                if cont_boss == 14:
+                    time.sleep(30) 
+                    dbg.console("Boss 14, refresh ships", 'DEBUG', 'ambos')
+                    clickBtn(images['ship'])
+                if cont_boss == 19:
+                    time.sleep(30) 
+                    dbg.console("Boss 19, refresh ships", 'DEBUG', 'ambos')
+                    clickBtn(images['ship'])
     return confirm_action
 
 def removeSpaceships():
