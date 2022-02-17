@@ -1,0 +1,43 @@
+---
+  # Valores de configuração do bot
+  ship_settings:
+    # Quantidade total de naves (total)
+    empty_qtd_spaceships: 60
+    
+    # Quantas naves deseja entrar para o boss
+    qtd_send_spaceships: 15
+
+    # Se deseja dar surrender, alterar para o valor do boss (zero não faz)
+    boss_surrender: 0
+    
+    # Envia somente naves 100% (True/False)
+    send_ships_full: False
+
+    # Se desejar que remova as naves antes de adicionar outras (True/False)
+    remove_ships: False 
+    
+  # Valor de confiança das comparações
+  threshold:
+    # Valor padrão: 0.7
+    default: 0.7
+
+    # Valor padrão: 0.8
+    commom: 0.8
+    
+    # Valor padrão 0.9
+    hard: 0.9
+
+    # Valor padrão: 0.8
+    select_wallet_buttons: 0.8
+
+    # Valor padrão: 0.9
+    go-fight: 0.9
+
+    # Valor padrão: 0.9
+    green_bar: 0.95
+
+    # Valor padrão 0.98
+    15-15-ships: 0.98
+
+    # Valor padrão 0.95
+    0-15: 0.95
