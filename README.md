@@ -5,6 +5,24 @@
 This is a free python bot program that crosses you to farm with auto click in space crypto NFT game, having fun :)
 ![space-crypto-bot-gif](https://user-images.githubusercontent.com/98666682/151814564-28a2d83e-2212-49a7-8e59-8d4ddd2acdb2.gif)
 
+# Novos updates 
+
+- Novo arquivo para configurações (conforme print)
+
+- Você consegue selecionar até que boss você quer dar surrender
+
+- Você enviar naves só com 100% 
+
+- Você pode desativar o bot para retirar naves
+
+- Correções de bugs 
+
+
+#e para quem for copiar e colar nosso código pelo menos manda um salve no video :clown: 
+
+![image](https://user-images.githubusercontent.com/98666682/154587116-2f543849-a908-4beb-bc39-4cdaba517237.png)
+
+
 ---
 ## About Project
 
