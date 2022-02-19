@@ -264,7 +264,8 @@ def clickButtonsFight():
         return len(buttons)
 
 def refreshPage():
-    pass
+    clickBtn(images['refresh-page'])
+    time.sleep(4)
 
 def screen_close():
     global cont_boss
@@ -405,10 +406,12 @@ def main():
     time_start = {
     "close" : 0,
     "login" : 0,
+    "refresh_page": time.time(),
     }
     time_to_check = {
-    "close" : 5,  
+    "close" : 5,
     "login" : 1,
+    "refresh_page": st['refresh_page'],
     }
 
     while True:
@@ -439,6 +442,13 @@ def main():
 
         if action_found == False:
             dbg.console('Nenhuma acao encontrada', 'WARNING', 'ambos')
+            if actual_time - time_start['refresh_page'] > time_to_check['refresh_page']:
+                dbg.console('Atualização da Página', 'WARNING', 'ambos')
+                time_start['refresh_page'] = actual_time
+                refreshPage()
+        else:
+            time_start['refresh_page'] = actual_time
+
 
 if __name__ == '__main__':
     main()
