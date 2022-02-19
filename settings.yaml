@@ -18,7 +18,10 @@
 
     # Volta para a spaceship nas waves 9, 14 e 19
     key_waves: True
-    
+
+    # Tempo de verificação se o jogo está travado e atualizar a pagina, configuração em segundos(300 = 5 min).
+    refresh_page: 300
+
   # Valor de confiança das comparações
   threshold:
     # Valor padrão: 0.7

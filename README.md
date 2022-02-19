@@ -17,6 +17,8 @@ This is a free python bot program that crosses you to farm with auto click in sp
 
 - Correções de bugs 
 
+- Configuração para atualização da pagina caso o bot fique 5 minutos(configuração default), parado sem executar nehnuma ação.
+
 
 #e para quem for copiar e colar nosso código pelo menos manda um salve no video :clown: 
 
