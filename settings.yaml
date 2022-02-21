@@ -8,13 +8,13 @@
     qtd_send_spaceships: 15
 
     # Se deseja dar surrender, alterar para o valor do boss (zero não faz)
-    boss_surrender: 0
+    boss_surrender: 6
     
     # Envia somente naves 100% (True/False)
-    send_ships_full: False
+    send_ships_full: True
 
     # Se desejar que remova as naves antes de adicionar outras (True/False)
-    remove_ships: False 
+    remove_ships: True
 
     # Volta para a spaceship nas waves 9, 14 e 19
     key_waves: True
