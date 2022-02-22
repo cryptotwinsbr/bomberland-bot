@@ -183,7 +183,7 @@ def login():
 def confirm():
     global cont_boss
     confirm_action = False
-    if len(positions(images['lose'], th['commom'])) > 0 and cont_boss > 1:
+    if len(positions(images['lose'], th['commom'])) > 0 :
         if clickBtn(images['confirm'], name='okBtn', timeout=1, threshold  = th['commom']):
             dbg.console('Confirm encontrado','INFO', 'ambos')
             time.sleep(2) 
