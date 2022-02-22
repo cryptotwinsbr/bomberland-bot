@@ -183,7 +183,7 @@ def login():
 def confirm():
     global cont_boss
     confirm_action = False
-    if len(positions(images['lose'], th['commom'])) > 0 and cont_boss > 1:
+    if len(positions(images['lose'], th['commom'])) > 0 :
         if clickBtn(images['confirm'], name='okBtn', timeout=1, threshold  = th['commom']):
             dbg.console('Confirm encontrado','INFO', 'ambos')
             time.sleep(2) 
@@ -203,18 +203,18 @@ def confirm():
                     time.sleep(1)
                     clickBtn(images['confirm-victory'], name='okVicBtn', timeout=2)
                     cont_boss = 1
-            if st['key_waves'] == True: 
-                if cont_boss == 9:
-                    time.sleep(30) 
-                    dbg.console("Boss 9, refresh ships", 'DEBUG', 'ambos')
+            if st['key_waves'] == True:                   
+                if cont_boss == st['numwavez1']:
+                    time.sleep(5) 
+                    dbg.console("Boss "+ str(st['numwavez1'])+", refresh ships", 'DEBUG', 'ambos')
                     clickBtn(images['ship'])
-                if cont_boss == 14:
-                    time.sleep(30) 
-                    dbg.console("Boss 14, refresh ships", 'DEBUG', 'ambos')
+                if cont_boss == st['numwavez2']:
+                    time.sleep(5) 
+                    dbg.console("Boss "+ str(st['numwavez2'])+", refresh ships", 'DEBUG', 'ambos')
                     clickBtn(images['ship'])
-                if cont_boss == 19:
-                    time.sleep(30) 
-                    dbg.console("Boss 19, refresh ships", 'DEBUG', 'ambos')
+                if cont_boss == st['numwavez3']:
+                    time.sleep(5) 
+                    dbg.console("Boss "+ str(st['numwavez3'])+", refresh ships", 'DEBUG', 'ambos')
                     clickBtn(images['ship'])
     return confirm_action
 
