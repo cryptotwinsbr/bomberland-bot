@@ -15,8 +15,7 @@ class Debug:
         datefmt='%Y-%b-%d %H:%M:%S'
         )
         
-    def console(self, msg, level, destino):
-        
+    def console(self, msg, level, destino):        
         hora_rede_local = time.strftime("%H:%M:%S", time.localtime())
         self.msg = msg
         self. level= level
