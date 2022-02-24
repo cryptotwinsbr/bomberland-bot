@@ -1,4 +1,11 @@
 ---
+  general_settings:
+    #Selecione a resulução, disponiveis:
+    #1 - 1366x768
+    #2 - 1680x1050
+    #3 - 1920x1080
+    resolution: 1
+
   # Valores de configuração do bot
   ship_settings:
     # Quantidade total de naves (total)
@@ -14,14 +21,36 @@
     send_ships_full: False
 
     # Se desejar que remova as naves antes de adicionar outras (True/False)
-    remove_ships: False 
+    remove_ships: True 
 
-    # Volta para a spaceship nas waves determinadas
+    # Volta para a spaceship nos bosses determinados
     key_waves: True
-    numwavez1: 10
-    numwavez2: 14
-    numwavez3: 16
+    numwavez1: 6
+    numwavez2: 10
+    numwavez3: 13
+
+    # Volta nas seleções de naves sempre que finalizar o surrender
+    select_spaceship_after_surrender: True
+
+    # Envia somente naves comuns para batalha 
+    send_only_common: False # Ainda em desenvolvimento
+
+    # Captura as recomenças de cada boss (valor medio e multicador)
+    get_rewards: True
+
+    # Timeout para dar refresh na tela caso nenhuma ação tenha sido encontrada. Valor padrão 600 (10min)
+    refresh_page: 600
+
+  optimization_settings:    
+    # Tempo entre clicks (se conexão ruim aumentar esse valor) Valor padrão: 0.6
+    time_click: 0.05
+
+    # Velocidade de locomoção do mouse (padrão 0.1)
+    move_speed_mouse: 0.1
     
+    # Deixar o filtro max-ammo sempre ativo
+    set_filter_max_ammo: True
+
   # Valor de confiança das comparações
   threshold:
     # Valor padrão: 0.7
@@ -36,14 +65,45 @@
     # Valor padrão: 0.8
     select_wallet_buttons: 0.8
 
-    # Valor padrão: 0.9
-    go-fight: 0.9
+    # Valor padrão: 0.98
+    go-fight: 0.92
 
     # Valor padrão: 0.9
-    green_bar: 0.95
+    green_bar: 0.8
 
     # Valor padrão 0.98
     15-15-ships: 0.98
 
-    # Valor padrão 0.95
-    0-15: 0.95
+    # Valor padrão 0.98
+    0-15: 0.98
+
+    # Valor padrão 0.8
+    confirm-end-boss: 0.8
+
+    # Ships rarity. Valor padrão 0.92
+    ships_rarity: 0.92
+
+    # Rewards 
+    rewards: 0.9
+# Media de valor de recompensa MEDIA para cada boss. Base retirada dia 21.02.22 (podendo sofrer alterações)
+  rewards:
+    boss_1: 0.09
+    boss_2: 0.11
+    boss_3: 0.13
+    boss_4: 0.19
+    boss_5: 0.18
+    boss_6: 0.13
+    boss_7: 0.20
+    boss_8: 0.27
+    boss_9: 0.35
+    boss_10: 0.66
+    boss_11: 0.50
+    boss_12: 0.60
+    boss_13: 0.66
+    boss_14: 0.72
+    boss_15: 1.08
+    boss_16: 0.95
+    boss_17: 0.96
+    boss_18: 1.14
+    boss_19: 1.04
+    boss_20: 1.95
