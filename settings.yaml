@@ -4,7 +4,7 @@
     #1 - 1366x768
     #2 - 1680x1050
     #3 - 1920x1080
-    resolution: 1
+    resolution: 3
 
   # Valores de configuração do bot
   ship_settings:
@@ -18,7 +18,7 @@
     boss_surrender: 8
     
     # Envia somente naves 100% (True/False)
-    send_ships_full: False
+    send_ships_full: True
 
     # Se desejar que remova as naves antes de adicionar outras (True/False)
     remove_ships: True 
