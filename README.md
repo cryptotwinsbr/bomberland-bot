@@ -6,7 +6,7 @@ This is a free python bot program that crosses you to farm with auto click in sp
 
 ![space](https://user-images.githubusercontent.com/98666682/155437986-4aa4cf43-f03b-4329-813a-047ae5cbdee4.gif)
 
-# Quer saber mais sobre versão v1.08 MULT ACCOUNT, da uma olhada no nosso novo video
+# Quer saber mais sobre versão v1.08 MULT ACCOUNT?
 
 https://www.youtube.com/watch?v=Bkoc6xSM7f8&t=95s&ab_channel=VaideNFT 
 
