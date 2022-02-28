@@ -10,7 +10,6 @@ This is a free python bot program that crosses you to farm with auto click in sp
 
 https://www.youtube.com/watch?v=Bkoc6xSM7f8&t=95s&ab_channel=VaideNFT 
 
-
 # Versão oficial (Official version) 1.07
 # Novos updates 
 
