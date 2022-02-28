@@ -18,7 +18,7 @@
     boss_surrender: 8
     
     # Envia somente naves 100% (True/False)
-    send_ships_full: False
+    send_ships_full: True
 
     # Se desejar que remova as naves antes de adicionar outras (True/False)
     remove_ships: True 
