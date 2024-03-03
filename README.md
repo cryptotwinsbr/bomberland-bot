@@ -2,7 +2,7 @@
 
 [![Author](https://img.shields.io/badge/author-cryptotwins-blue)]() ![python](https://img.shields.io/badge/python-%5E%203-green) 
 
-This is a free python bot program that crosses you to farm with auto click in space crypto NFT game, having fun :)
+This is a free python bot program that crosses you to farm with auto click in space crypto NFT game :)
 
 ![space](https://user-images.githubusercontent.com/98666682/155437986-4aa4cf43-f03b-4329-813a-047ae5cbdee4.gif)
 
