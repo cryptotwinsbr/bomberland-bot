@@ -3,37 +3,27 @@
 [![Author](https://img.shields.io/badge/author-cryptotwins-blue)]() ![python](https://img.shields.io/badge/python-%5E%203-green) 
 
 This is a free python bot program that crosses you to farm with auto click in bomber land crypto NFT game, having fun :)
-![bomber-crypto-bot-gif](https://user-images.githubusercontent.com/98666682/151814564-28a2d83e-2212-49a7-8e59-8d4ddd2acdb2.gif)
 
-# Novos updates 
 
-- Novo arquivo para configurações (conforme print)
+# Updates para versão 2024 lançada
 
-- Você consegue selecionar até que boss você quer dar surrender
+- Arquivo para selecionar rede BSC/Polygon
 
-- Você enviar naves só com 100% 
-
-- Você pode desativar o bot para retirar naves
-
-- Correções de bugs 
+- Ativação do farm automatico.
 
 
 #e para quem for copiar e colar nosso código pelo menos manda um salve no video :clown: 
-
-![image](https://user-images.githubusercontent.com/98666682/154587116-2f543849-a908-4beb-bc39-4cdaba517237.png)
 
 
 ---
 ## About Project
 
 
-This is a open source project inspired on bombcrypto-bot that was a success auto click bot that helped me a lot.
-
-So, I decided to create a new auto click bot for the new NFT game bomber land crypto. (It is not soo easy) I hope you like 
+This is a open source project inpired to help the comunnity of bomberland version 2024.
 
 To maintain the improvments and this auto click bot free, please help me with any value, have fun :)
 
-- Metamask wallet (BNB/SPG/BUSD/BCOIN):  `0x73933b679F940ea7352c3895852501e3044FE855`
+- Metamask wallet (BNB/BUSD/BCOIN/BOMB/SENS):  `0x73933b679F940ea7352c3895852501e3044FE855`
 - My key pix: `5f3d220c-a2a3-4db2-bfb2-30ae0533e240`
 
 QRCode pix:
@@ -93,11 +83,8 @@ In the installation check the option and complete the install.
 
 Download the project on your machine
 
-![image](https://user-images.githubusercontent.com/98666682/151677578-60b29bad-6c67-4e73-9c3b-65a0398e76fc.png)
+Extract your zip and copy the directory
 
-Extract your zip and copy the directory, example:
-
-![image](https://user-images.githubusercontent.com/98666682/151678334-874b554b-723e-47d3-bc5e-63bceb43ae27.png)
 
 ### Run auto click bot
 
