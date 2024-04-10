@@ -15,13 +15,13 @@ class Debug:
         datefmt='%Y-%b-%d %H:%M:%S'
         )
         
-    def console(self, msg, level, destino):        
+    def console(self, msg, level, destino, type):        
         hora_rede_local = time.strftime("%H:%M:%S", time.localtime())
         self.msg = msg
         self. level= level
         self.destino = destino
         if self.destino == 'monitor':
-            print('[{} {}] [{}] {}'.format(datetime.date.today(), hora_rede_local, level, msg)) 
+            print('[{} {}][{}][{}] {}'.format(datetime.date.today(), hora_rede_local, type, level, msg)) 
         elif self.destino == 'arquivo':
             if self.level == 'DEBUG':
                 logging.debug(msg)
@@ -34,7 +34,7 @@ class Debug:
             elif self.level == 'CRITICAL':
                 logging.critical(msg)
         elif self.destino == 'ambos':    
-            print('[{} {}] [{}] {}'.format(datetime.date.today(), hora_rede_local, level, msg)) 
+            print('[{} {}][{}][{}] {}'.format(datetime.date.today(), hora_rede_local, type, level, msg)) 
             if self.level == 'DEBUG':
                 logging.debug(msg)
             elif self.level == 'INFO':
