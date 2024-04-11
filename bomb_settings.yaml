@@ -1,0 +1,81 @@
+generals:
+  # Save all logs in file logs/logger.txt
+  #   0: Don't save log
+  #   1: Save log
+  save_log_file: 0
+  
+  # Reset log file on start
+  #   0: false
+  #   1: true
+  reset_log_file: 1
+
+  # Which hotkey is used to refresh the browser
+  #   1: CTRL + F5
+  #   2: CTRL + SHIFT + R
+  refresh_page_shortcut: 1
+  # Time format to show on logs:
+  # Full date time: "%Y-%m-%d %H:%M:%S"
+  time_format: "%m-%d %H:%M"
+
+
+heroes_work_mod:
+  # Properties that identifies heroes to work according rarity and life %;
+  #   Available options: 0, 10, 20, 30, 40, 50, 60, 70, 80, 90 or 100.
+  Common: 60
+  Rare: 40
+  SuperRare: 30
+  Epic: 30
+  Legend: 30
+  SuperLegend: 30
+
+
+screen:
+  # Number of login attempts
+  number_login_attempts: 3
+
+  # Time to update hero positions on farm screen
+  refresh_hunt: 3
+
+  # Timer to check who needs to go back to work
+  refresh_heroes: 20
+
+  # Timer to force browser refresh, prevent indestructible blocks and other possibles errors
+  refresh_login: 45
+
+  # Timer to check popup screen errors, if it's in error, restarts with login again
+  refresh_check_error: 1
+
+  # Chest photo type, for sending via Telegram
+  #   true: The entire screen where the browser tab will be
+  #   false: Just chest screen with your coins
+  print_full_screen: false
+
+  scroll_heroes:
+    # total number of times the screen scrolls down
+    repeat: 3
+
+    # distance when scrolling down
+    distance: -375
+
+    # duration of scrolling
+    duration: 2 
+
+    # Wait time to stop scrolling before checking the heroes on the screen.
+    wait: 1
+
+telegram:
+  # Settings for telegram integration 
+  token: ""
+  chat_id: 0
+
+  # Timer when your chest image is sent to telegram
+  refresh_print_chest: 60
+  
+
+# xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# DONT CHANGE THIS CONFIGS
+# ------------------------
+threshold:
+  default: 0.7
+  hero_to_work: 0.9
+# xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
