@@ -1,5 +1,8 @@
 # 🚀 Bomber Land Crypto auto click bot ready-to-use 🚀
 
+![image](https://github.com/cryptotwinsbr/bomberland-bot/assets/26221704/b66ad7c3-9c25-4f03-bedc-3499ea860f0a)
+
+
 [![Author](https://img.shields.io/badge/author-cryptotwins-blue)]() ![python](https://img.shields.io/badge/python-%5E%203-green) 
 
 This is a free python bot program that crosses you to farm with auto click in bomber land crypto NFT game, having fun :)
@@ -97,9 +100,6 @@ After install and download the dependences, run the following commands:
  Sample:
  cd C:\<your path here>\bomberland-bot-main
 ```
-![image](https://user-images.githubusercontent.com/98666682/151678504-5062fd0b-c20f-4162-aea6-4ad263e67da1.png)
-
-
 
 
 Install the dependences, execute this commands:
