@@ -14,7 +14,7 @@ class ImageBomb:
 
     @staticmethod
     def load_targets():
-        path = "img_compare/bomb_targets/"
+        path = "img_compare/bomberland_images/"
         file_names = listdir(path)
 
         targets = {}

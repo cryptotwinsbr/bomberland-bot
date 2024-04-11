@@ -77,7 +77,7 @@ class BombScreen:
 
     def go_to_home(manager, current_screen = None):
         current_screen = BombScreen.get_current_screen() if current_screen == None else current_screen
-        if current_screen == BombScreenEnum.HOME.value:
+        if current_screen == BombScreenEnum.TREASURE_HUNT.value:
             return
         elif current_screen == BombScreenEnum.TREASURE_HUNT.value:
             click_when_target_appears("button_back")
@@ -153,7 +153,7 @@ class Login:
         current_screen = BombScreen.get_current_screen()
         logged = False
         
-        if current_screen != BombScreenEnum.LOGIN.value and current_screen != BombScreenEnum.NOT_FOUND.value and current_screen != BombScreenEnum.POPUP_ERROR.value:
+        if current_screen != BombScreenEnum.HOME.value and current_screen != BombScreenEnum.NOT_FOUND.value and current_screen != BombScreenEnum.POPUP_ERROR.value:
             logged = True
 
         if not logged:
@@ -162,25 +162,35 @@ class Login:
         
             for i in range(login_attepmts):
                 
-                if BombScreen.get_current_screen() != BombScreenEnum.LOGIN.value:
+                if BombScreen.get_current_screen() != BombScreenEnum.HOME.value:
                     refresh_page()
-                    BombScreen.wait_for_screen(BombScreenEnum.LOGIN.value)
+                    BombScreen.wait_for_screen(BombScreenEnum.HOME.value)
                 if not click_when_target_appears("button_connect_wallet"):
                     refresh_page()
                     continue                
-                if not click_when_target_appears("button_connect_metamask"):
+                if not click_when_target_appears("polygon_chain"):
                     refresh_page()
                     continue
-                if not click_when_target_appears("button_connect_wallet_sign"):
+                if not click_when_target_appears("play_button"):
+                    refresh_page()
+                    continue
+                if not click_when_target_appears("metamask_button"):
+                    refresh_page()
+                    continue
+                if not click_when_target_appears("sign_button"):
                     refresh_page()
                     continue
 
-                if (BombScreen.wait_for_screen(BombScreenEnum.HOME.value) != BombScreenEnum.HOME.value):
+                dbg.console('Login bomb OK', 'INFO', 'ambos', 'BOMB')  
+                logged = True
+                break
+
+                '''if (BombScreen.wait_for_screen(BombScreenEnum.TREASURE_HUNT.value) != BombScreenEnum.TREASURE_HUNT.value):
                     continue
                 else:
                     dbg.console('Login bomb OK', 'INFO', 'ambos', 'BOMB')  
                     logged = True
-                    break
+                    break'''
 
         manager.set_refresh_timer("refresh_login")
         return logged
@@ -255,6 +265,16 @@ class Hero:
         BombScreen.go_to_home(manager)
         BombScreen.go_to_treasure_hunt(manager)
         manager.set_refresh_timer("refresh_hunt")
+        return True
+    
+    def go_farming(manager):
+        current_screen = BombScreen.get_current_screen()
+
+        BombScreen.wait_for_screen(BombScreenEnum.TREASURE_HUNT.value)
+        
+        if current_screen == BombScreenEnum.TREASURE_HUNT.value:
+            if not click_when_target_appears("identify_treasure_hunt"):
+                pass
         return True
     
     def do_check_error(manager):        
