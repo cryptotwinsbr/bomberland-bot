@@ -130,6 +130,8 @@ QRCode pix:
 
 ![image](https://user-images.githubusercontent.com/98666682/151678042-ad125099-297c-4c5d-a5f3-92b083733b55.png)
 
+![Alt](https://repobeats.axiom.co/api/embed/ddb8ac3538f8d752e9da228f87583fcf646d93be.svg "Repobeats analytics image")
+
 
 Have a nice farm and a good sleep night! :)
 
